@@ -1,0 +1,60 @@
+html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: linear-gradient(300deg, #94e1fa, #7165a7, #73d6ab);
+    background-size: 180% 180%;
+    animation: gradient-animation 18s ease infinite;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+@keyframes gradient-animation {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+}
+input{
+    border-radius: 25px;
+    width: 600px;
+    height: 45px;
+    border-style: none;
+    font-size: 1.8em;
+    text-align: center;
+    
+}
+button{
+    border-radius: 25px;
+    width: 100px;
+    height: 45px;
+    border-style: none;
+    font-size: 1.4em;
+}
+
+button:hover{
+    background-color: rgb(64, 236, 98);
+}
+
+.container{
+    background-color: rgb(250, 249, 249);
+    opacity: 0.9;
+    height: 400px;
+    width: 700px;
+    margin-top: 15px;
+    border-radius: 25px;
+}
