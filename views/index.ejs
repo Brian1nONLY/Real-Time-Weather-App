@@ -9,28 +9,54 @@
 </head>
 <body>
     <%if (!locals.city){%>
-        <form action="/city" method="post">
+        
+        <form class="search" action="/city" method="post">
             <input type="text" required="" name="city" placeholder="Enter your city" autocomplete="off">
             <button onclick="barposition()" action="submit">search</button>
         </form>
+        
     <% } else{ %>
-        <form action="/city" method="post">
-            <input type="text" required="" name="city" placeholder="Enter your city" autocomplete="off">
-            <button onclick="barposition()" action="submit">search</button>
-        </form>
+        
+            <form class="search" action="/city" method="post">
+                <input type="text" required="" name="city" placeholder="Enter your city" autocomplete="off">
+                <button onclick="barposition()" action="submit">search</button>
+            </form>
+        
         <%const imageSrc = "https://openweathermap.org/img/wn/";%>
         <%const imageUrl = imageSrc + icon + "@2x.png";%>
     
         <div class="container">
-            <div>
+            <div class="namesec">
                 <h1><%= city %>, <%= country %></h1>
                 <p><%= timezone%></p>
             </div>
             
-            <div class="deg">
-                <img src=<%=imageUrl%> alt="weather icon">
-                <h2><%= temp %>&deg;C</h2>
-                <h2><%= description %></h2>
+            <div class="degsec">
+                <div class="deg">
+                    <img src="<%=imageUrl%>" alt="weather icon">
+                    <div>
+                        <h2><%= temp %>&deg;C</h2>
+                        <h2><%= description %></h2>
+                    </div>
+                </div>
+                <div class="mainsec">
+                    <div>
+                        <h3><%= high %>&deg;C</h3>
+                        <p>High</p>
+                    </div>
+                    <div>
+                        <h3><%= sunrise %></h3>
+                        <p>Sunrise</p>
+                    </div>
+                    <div>
+                        <h3><%= low %>&deg;C</h3>
+                        <p>Low</p>
+                    </div>
+                    <div>
+                        <h3><%= sunset %></h3>
+                        <p>Sunset</p>
+                    </div>
+                </div>
             </div>
 
         </div>

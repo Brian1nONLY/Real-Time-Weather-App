@@ -31,17 +31,25 @@ app.post("/city", async (req, res) => {
     const result = response.data
     console.log(result);
     const dtIn = Math.floor(Date.now() / 1000); // Current time in seconds since epoch
+    const sunriseUnix = result.sys.sunrise;
+    const sunriseDate = new Date(sunriseUnix * 1000);
+    const sunsetUnix = result.sys.sunset;
+    const sunsetDate = new Date(sunsetUnix * 1000);
+    const options = { hour: '2-digit', minute: '2-digit' };
+
+    const sunriseTime = sunriseDate.toLocaleTimeString('en-US', options);
+    const sunsetTime = sunsetDate.toLocaleTimeString('en-US', options);
     
     res.render("index.ejs", {
       city: result.name,
       country: result.sys.country,
-      sunrise: result.sys.sunrise,
-      sunset: result.sys.sunset,
-      temp: result.main.temp,
+      sunrise: sunriseTime,
+      sunset: sunsetTime,
+      temp: (result.main.temp).toFixed(1),
       description: result.weather[0].description,
       icon: result.weather[0].icon,
-      high: result.main.temp_max,
-      low: result.main.temp_min,
+      high: (result.main.temp_max).toFixed(1),
+      low: (result.main.temp_min).toFixed(1),
       wind: result.wind.speed,
       humidity: result.main.humidity,
       timezone: currentTime(result.timezone, dtIn)
