@@ -41,3 +41,4 @@ This Weather Web App is a simple web application that fetches weather data from 
     ```
 3. Open your browser and go to `http://localhost:3000`
 
+https://real-time-weather-app-s6sz.onrender.com
